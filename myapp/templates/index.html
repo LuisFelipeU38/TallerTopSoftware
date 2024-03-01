@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a ElBotardo.com</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido a ElBotardo.com</h1>
+        <div class="options">
+            <a href="{% url 'opcion_uno' %}" class="button">Crear videojuego</a>
+            <a href="{% url 'opcion_dos' %}" class="button">Ver videojuegos</a>
+        </div>
+    </div>
+</body>
+</html>
+

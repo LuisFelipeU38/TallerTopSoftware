@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Videojuego</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalle del Videojuego</h1>
+        <p>ID: {{ videojuego.id }}</p>
+        <p>Nombre: {{ videojuego.nombre }}</p>
+        <p>Descripción: {{ videojuego.descripcion }}</p>
+        <p>Categoría: {{ videojuego.categoria }}</p>
+        <p>Precio: {{ videojuego.precio }}</p>
+
+        <form action="{% url 'borrar_videojuego' videojuego.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Borrar Videojuego</button>
+        </form>
+
+        <a href="{% url 'opcion_dos' %} ">Volver a la lista de Videojuegos</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videojuegos Disponibles</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Videojuegos Disponibles</h1>
+        {% if mensaje %}
+        <p>{{ mensaje }}</p>
+        {% else %}
+        <ul>
+            {% for videojuego in videojuegos %}
+                <li>
+                    <a href="{% url 'detalle_videojuego' videojuego.id %}">
+                        ID: {{ videojuego.id }}, Nombre: {{ videojuego.nombre }}, Descripción: {{ videojuego.descripcion }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="options">
+            <a href="{% url 'opcion_uno' %}" class="button">Crear nuevo videojuego</a>
+        </div>
+    </div>
+</body>
+</html>
